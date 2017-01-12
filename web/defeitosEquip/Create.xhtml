@@ -19,8 +19,7 @@
                     <h:inputText id="dataIdentificacao" value="#{defeitosEquipController.selected.dataIdentificacao}" title="#{bundle.CreateDefeitosEquipTitle_dataIdentificacao}" required="true" requiredMessage="#{bundle.CreateDefeitosEquipRequiredMessage_dataIdentificacao}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateDefeitosEquipLabel_idDefeitoEquip}" for="idDefeitoEquip" />
-                    <h:inputText id="idDefeitoEquip" value="#{defeitosEquipController.selected.idDefeitoEquip}" title="#{bundle.CreateDefeitosEquipTitle_idDefeitoEquip}" required="true" requiredMessage="#{bundle.CreateDefeitosEquipRequiredMessage_idDefeitoEquip}"/>
+                    
                     <h:outputLabel value="#{bundle.CreateDefeitosEquipLabel_idDefeito}" for="idDefeito" />
                     <h:selectOneMenu id="idDefeito" value="#{defeitosEquipController.selected.idDefeito}" title="#{bundle.CreateDefeitosEquipTitle_idDefeito}" required="true" requiredMessage="#{bundle.CreateDefeitosEquipRequiredMessage_idDefeito}">
                         <f:selectItems value="#{defeitoController.itemsAvailableSelectOne}"/>

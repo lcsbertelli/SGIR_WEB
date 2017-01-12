@@ -19,8 +19,7 @@
                     <h:inputText id="dateSolicitacao" value="#{solicitaSalaController.selected.dateSolicitacao}" title="#{bundle.CreateSolicitaSalaTitle_dateSolicitacao}" required="true" requiredMessage="#{bundle.CreateSolicitaSalaRequiredMessage_dateSolicitacao}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateSolicitaSalaLabel_idSolicitaSala}" for="idSolicitaSala" />
-                    <h:inputText id="idSolicitaSala" value="#{solicitaSalaController.selected.idSolicitaSala}" title="#{bundle.CreateSolicitaSalaTitle_idSolicitaSala}" required="true" requiredMessage="#{bundle.CreateSolicitaSalaRequiredMessage_idSolicitaSala}"/>
+                    
                     <h:outputLabel value="#{bundle.CreateSolicitaSalaLabel_idDisciplina}" for="idDisciplina" />
                     <h:selectOneMenu id="idDisciplina" value="#{solicitaSalaController.selected.idDisciplina}" title="#{bundle.CreateSolicitaSalaTitle_idDisciplina}" >
                         <f:selectItems value="#{disciplinaController.itemsAvailableSelectOne}"/>

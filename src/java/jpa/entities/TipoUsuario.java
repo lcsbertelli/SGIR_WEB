@@ -109,7 +109,8 @@ public class TipoUsuario implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.TipoUsuario[ idTipoUsuario=" + idTipoUsuario + " ]";
+        //return "jpa.entities.TipoUsuario[ idTipoUsuario=" + idTipoUsuario + " ]";
+        return this.tipoUsuario; 
     }
     
 }

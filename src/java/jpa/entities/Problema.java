@@ -122,7 +122,8 @@ public class Problema implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Problema[ idProblema=" + idProblema + " ]";
+        //return "jpa.entities.Problema[ idProblema=" + idProblema + " ]";
+        return this.descricao;
     }
     
 }

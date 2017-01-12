@@ -119,7 +119,8 @@ public class Disciplina implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Disciplina[ idDisciplina=" + idDisciplina + " ]";
+        //return "jpa.entities.Disciplina[ idDisciplina=" + idDisciplina + " ]";
+        return this.nome;
     }
     
 }

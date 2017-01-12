@@ -122,7 +122,8 @@ public class Defeito implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Defeito[ idDefeito=" + idDefeito + " ]";
+        //return "jpa.entities.Defeito[ idDefeito=" + idDefeito + " ]";
+        return this.descricao;
     }
     
 }

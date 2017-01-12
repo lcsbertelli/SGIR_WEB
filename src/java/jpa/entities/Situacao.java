@@ -120,7 +120,8 @@ public class Situacao implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Situacao[ idSituacao=" + idSituacao + " ]";
+        //return "jpa.entities.Situacao[ idSituacao=" + idSituacao + " ]";
+        return this.nome;
     }
     
 }

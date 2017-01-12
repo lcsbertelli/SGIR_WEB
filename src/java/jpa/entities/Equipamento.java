@@ -166,7 +166,8 @@ public class Equipamento implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Equipamento[ idEquip=" + idEquip + " ]";
+        //return "jpa.entities.Equipamento[ idEquip=" + idEquip + " ]";
+        return "Nº Patrimonio: " + this.numPatrimonio;
     }
     
 }

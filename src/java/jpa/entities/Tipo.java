@@ -109,7 +109,8 @@ public class Tipo implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Tipo[ idTipo=" + idTipo + " ]";
+        //return "jpa.entities.Tipo[ idTipo=" + idTipo + " ]";
+        return this.nome;
     }
     
 }

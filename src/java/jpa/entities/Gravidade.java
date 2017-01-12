@@ -120,7 +120,8 @@ public class Gravidade implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Gravidade[ idGravidade=" + idGravidade + " ]";
+        //return "jpa.entities.Gravidade[ idGravidade=" + idGravidade + " ]";
+        return this.nome;
     }
     
 }

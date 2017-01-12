@@ -109,7 +109,8 @@ public class Mobilidade implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Mobilidade[ idMobilidade=" + idMobilidade + " ]";
+        //return "jpa.entities.Mobilidade[ idMobilidade=" + idMobilidade + " ]";
+        return this.nome;
     }
     
 }

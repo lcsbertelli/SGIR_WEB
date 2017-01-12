@@ -154,7 +154,8 @@ public class Sala implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Sala[ idSala=" + idSala + " ]";
+        //return "jpa.entities.Sala[ idSala=" + idSala + " ]";
+        return "Sala nº: " + this.numSala;
     }
     
 }

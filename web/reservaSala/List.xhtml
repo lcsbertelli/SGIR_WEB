@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListReservaSalaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListReservaSalaEmpty}" rendered="#{reservaSalaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{reservaSalaController.items.rowCount > 0}">
+                    <h:outputText value="#{reservaSalaController.pagination.pageFirstItem + 1}..#{reservaSalaController.pagination.pageLastItem + 1}/#{reservaSalaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{reservaSalaController.previous}" value="#{bundle.Previous} #{reservaSalaController.pagination.pageSize}" rendered="#{reservaSalaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{reservaSalaController.next}" value="#{bundle.Next} #{reservaSalaController.pagination.pageSize}" rendered="#{reservaSalaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{reservaSalaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaSalaTitle_idReservaSala}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idReservaSala}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaSalaTitle_dateReserva}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateReserva}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaSalaTitle_idDisciplina}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idDisciplina}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaSalaTitle_idGerente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idGerente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaSalaTitle_idProf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idProf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaSalaTitle_idSala}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idSala}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{reservaSalaController.prepareView}" value="#{bundle.ListReservaSalaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{reservaSalaController.prepareEdit}" value="#{bundle.ListReservaSalaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{reservaSalaController.destroy}" value="#{bundle.ListReservaSalaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{reservaSalaController.prepareCreate}" value="#{bundle.ListReservaSalaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListReservaSalaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

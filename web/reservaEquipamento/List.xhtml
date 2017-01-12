@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListReservaEquipamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListReservaEquipamentoEmpty}" rendered="#{reservaEquipamentoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{reservaEquipamentoController.items.rowCount > 0}">
+                    <h:outputText value="#{reservaEquipamentoController.pagination.pageFirstItem + 1}..#{reservaEquipamentoController.pagination.pageLastItem + 1}/#{reservaEquipamentoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{reservaEquipamentoController.previous}" value="#{bundle.Previous} #{reservaEquipamentoController.pagination.pageSize}" rendered="#{reservaEquipamentoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{reservaEquipamentoController.next}" value="#{bundle.Next} #{reservaEquipamentoController.pagination.pageSize}" rendered="#{reservaEquipamentoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{reservaEquipamentoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaEquipamentoTitle_idReservaEquip}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idReservaEquip}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaEquipamentoTitle_dateReserva}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateReserva}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaEquipamentoTitle_idEquip}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEquip}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaEquipamentoTitle_idGerente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idGerente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaEquipamentoTitle_idProf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idProf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{reservaEquipamentoController.prepareView}" value="#{bundle.ListReservaEquipamentoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{reservaEquipamentoController.prepareEdit}" value="#{bundle.ListReservaEquipamentoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{reservaEquipamentoController.destroy}" value="#{bundle.ListReservaEquipamentoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{reservaEquipamentoController.prepareCreate}" value="#{bundle.ListReservaEquipamentoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListReservaEquipamentoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

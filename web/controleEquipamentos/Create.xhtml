@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateControleEquipamentosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateControleEquipamentosLabel_idControleEquip}" for="idControleEquip" />
+                    <h:inputText id="idControleEquip" value="#{controleEquipamentosController.selected.idControleEquip}" title="#{bundle.CreateControleEquipamentosTitle_idControleEquip}" required="true" requiredMessage="#{bundle.CreateControleEquipamentosRequiredMessage_idControleEquip}"/>
+                    <h:outputLabel value="#{bundle.CreateControleEquipamentosLabel_dateEntregaEquip}" for="dateEntregaEquip" />
+                    <h:inputText id="dateEntregaEquip" value="#{controleEquipamentosController.selected.dateEntregaEquip}" title="#{bundle.CreateControleEquipamentosTitle_dateEntregaEquip}" required="true" requiredMessage="#{bundle.CreateControleEquipamentosRequiredMessage_dateEntregaEquip}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateControleEquipamentosLabel_dateDevolucaoEquip}" for="dateDevolucaoEquip" />
+                    <h:inputText id="dateDevolucaoEquip" value="#{controleEquipamentosController.selected.dateDevolucaoEquip}" title="#{bundle.CreateControleEquipamentosTitle_dateDevolucaoEquip}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateControleEquipamentosLabel_idAssistente}" for="idAssistente" />
+                    <h:selectOneMenu id="idAssistente" value="#{controleEquipamentosController.selected.idAssistente}" title="#{bundle.CreateControleEquipamentosTitle_idAssistente}" required="true" requiredMessage="#{bundle.CreateControleEquipamentosRequiredMessage_idAssistente}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateControleEquipamentosLabel_idReservaEquip}" for="idReservaEquip" />
+                    <h:selectOneMenu id="idReservaEquip" value="#{controleEquipamentosController.selected.idReservaEquip}" title="#{bundle.CreateControleEquipamentosTitle_idReservaEquip}" required="true" requiredMessage="#{bundle.CreateControleEquipamentosRequiredMessage_idReservaEquip}">
+                        <f:selectItems value="#{reservaEquipamentoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{controleEquipamentosController.create}" value="#{bundle.CreateControleEquipamentosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{controleEquipamentosController.prepareList}" value="#{bundle.CreateControleEquipamentosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateControleEquipamentosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSolicitaEquipamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListSolicitaEquipamentoEmpty}" rendered="#{solicitaEquipamentoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{solicitaEquipamentoController.items.rowCount > 0}">
+                    <h:outputText value="#{solicitaEquipamentoController.pagination.pageFirstItem + 1}..#{solicitaEquipamentoController.pagination.pageLastItem + 1}/#{solicitaEquipamentoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{solicitaEquipamentoController.previous}" value="#{bundle.Previous} #{solicitaEquipamentoController.pagination.pageSize}" rendered="#{solicitaEquipamentoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{solicitaEquipamentoController.next}" value="#{bundle.Next} #{solicitaEquipamentoController.pagination.pageSize}" rendered="#{solicitaEquipamentoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{solicitaEquipamentoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSolicitaEquipamentoTitle_dateSolicitacao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateSolicitacao}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSolicitaEquipamentoTitle_idSolicitaEquip}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idSolicitaEquip}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSolicitaEquipamentoTitle_idEquip}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEquip}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSolicitaEquipamentoTitle_idProf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idProf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{solicitaEquipamentoController.prepareView}" value="#{bundle.ListSolicitaEquipamentoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{solicitaEquipamentoController.prepareEdit}" value="#{bundle.ListSolicitaEquipamentoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{solicitaEquipamentoController.destroy}" value="#{bundle.ListSolicitaEquipamentoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{solicitaEquipamentoController.prepareCreate}" value="#{bundle.ListSolicitaEquipamentoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListSolicitaEquipamentoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

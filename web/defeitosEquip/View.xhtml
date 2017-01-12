@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDefeitosEquipTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDefeitosEquipLabel_dataIdentificacao}"/>
+                    <h:outputText value="#{defeitosEquipController.selected.dataIdentificacao}" title="#{bundle.ViewDefeitosEquipTitle_dataIdentificacao}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewDefeitosEquipLabel_idDefeitoEquip}"/>
+                    <h:outputText value="#{defeitosEquipController.selected.idDefeitoEquip}" title="#{bundle.ViewDefeitosEquipTitle_idDefeitoEquip}"/>
+                    <h:outputText value="#{bundle.ViewDefeitosEquipLabel_idDefeito}"/>
+                    <h:outputText value="#{defeitosEquipController.selected.idDefeito}" title="#{bundle.ViewDefeitosEquipTitle_idDefeito}"/>
+                    <h:outputText value="#{bundle.ViewDefeitosEquipLabel_idEquip}"/>
+                    <h:outputText value="#{defeitosEquipController.selected.idEquip}" title="#{bundle.ViewDefeitosEquipTitle_idEquip}"/>
+                    <h:outputText value="#{bundle.ViewDefeitosEquipLabel_idSituacao}"/>
+                    <h:outputText value="#{defeitosEquipController.selected.idSituacao}" title="#{bundle.ViewDefeitosEquipTitle_idSituacao}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{defeitosEquipController.destroyAndView}" value="#{bundle.ViewDefeitosEquipDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDefeitosEquipEditLink}"/>
+                <br />
+                <h:commandLink action="#{defeitosEquipController.prepareCreate}" value="#{bundle.ViewDefeitosEquipCreateLink}" />
+                <br />
+                <h:commandLink action="#{defeitosEquipController.prepareList}" value="#{bundle.ViewDefeitosEquipShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDefeitosEquipIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

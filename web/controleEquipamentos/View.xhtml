@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewControleEquipamentosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewControleEquipamentosLabel_idControleEquip}"/>
+                    <h:outputText value="#{controleEquipamentosController.selected.idControleEquip}" title="#{bundle.ViewControleEquipamentosTitle_idControleEquip}"/>
+                    <h:outputText value="#{bundle.ViewControleEquipamentosLabel_dateEntregaEquip}"/>
+                    <h:outputText value="#{controleEquipamentosController.selected.dateEntregaEquip}" title="#{bundle.ViewControleEquipamentosTitle_dateEntregaEquip}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewControleEquipamentosLabel_dateDevolucaoEquip}"/>
+                    <h:outputText value="#{controleEquipamentosController.selected.dateDevolucaoEquip}" title="#{bundle.ViewControleEquipamentosTitle_dateDevolucaoEquip}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewControleEquipamentosLabel_idAssistente}"/>
+                    <h:outputText value="#{controleEquipamentosController.selected.idAssistente}" title="#{bundle.ViewControleEquipamentosTitle_idAssistente}"/>
+                    <h:outputText value="#{bundle.ViewControleEquipamentosLabel_idReservaEquip}"/>
+                    <h:outputText value="#{controleEquipamentosController.selected.idReservaEquip}" title="#{bundle.ViewControleEquipamentosTitle_idReservaEquip}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{controleEquipamentosController.destroyAndView}" value="#{bundle.ViewControleEquipamentosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewControleEquipamentosEditLink}"/>
+                <br />
+                <h:commandLink action="#{controleEquipamentosController.prepareCreate}" value="#{bundle.ViewControleEquipamentosCreateLink}" />
+                <br />
+                <h:commandLink action="#{controleEquipamentosController.prepareList}" value="#{bundle.ViewControleEquipamentosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewControleEquipamentosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

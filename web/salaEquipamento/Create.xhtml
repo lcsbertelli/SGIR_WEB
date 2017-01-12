@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSalaEquipamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSalaEquipamentoLabel_idSalaEquip}" for="idSalaEquip" />
+                    <h:inputText id="idSalaEquip" value="#{salaEquipamentoController.selected.idSalaEquip}" title="#{bundle.CreateSalaEquipamentoTitle_idSalaEquip}" required="true" requiredMessage="#{bundle.CreateSalaEquipamentoRequiredMessage_idSalaEquip}"/>
+                    <h:outputLabel value="#{bundle.CreateSalaEquipamentoLabel_idEquip}" for="idEquip" />
+                    <h:selectOneMenu id="idEquip" value="#{salaEquipamentoController.selected.idEquip}" title="#{bundle.CreateSalaEquipamentoTitle_idEquip}" required="true" requiredMessage="#{bundle.CreateSalaEquipamentoRequiredMessage_idEquip}">
+                        <f:selectItems value="#{equipamentoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateSalaEquipamentoLabel_idSala}" for="idSala" />
+                    <h:selectOneMenu id="idSala" value="#{salaEquipamentoController.selected.idSala}" title="#{bundle.CreateSalaEquipamentoTitle_idSala}" required="true" requiredMessage="#{bundle.CreateSalaEquipamentoRequiredMessage_idSala}">
+                        <f:selectItems value="#{salaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{salaEquipamentoController.create}" value="#{bundle.CreateSalaEquipamentoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{salaEquipamentoController.prepareList}" value="#{bundle.CreateSalaEquipamentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSalaEquipamentoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

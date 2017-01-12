@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSolicitaSalaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListSolicitaSalaEmpty}" rendered="#{solicitaSalaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{solicitaSalaController.items.rowCount > 0}">
+                    <h:outputText value="#{solicitaSalaController.pagination.pageFirstItem + 1}..#{solicitaSalaController.pagination.pageLastItem + 1}/#{solicitaSalaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{solicitaSalaController.previous}" value="#{bundle.Previous} #{solicitaSalaController.pagination.pageSize}" rendered="#{solicitaSalaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{solicitaSalaController.next}" value="#{bundle.Next} #{solicitaSalaController.pagination.pageSize}" rendered="#{solicitaSalaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{solicitaSalaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSolicitaSalaTitle_dateSolicitacao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateSolicitacao}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSolicitaSalaTitle_idSolicitaSala}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idSolicitaSala}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSolicitaSalaTitle_idDisciplina}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idDisciplina}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSolicitaSalaTitle_idProf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idProf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSolicitaSalaTitle_idSala}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idSala}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{solicitaSalaController.prepareView}" value="#{bundle.ListSolicitaSalaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{solicitaSalaController.prepareEdit}" value="#{bundle.ListSolicitaSalaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{solicitaSalaController.destroy}" value="#{bundle.ListSolicitaSalaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{solicitaSalaController.prepareCreate}" value="#{bundle.ListSolicitaSalaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListSolicitaSalaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

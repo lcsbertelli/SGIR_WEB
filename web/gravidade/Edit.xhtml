@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditGravidadeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditGravidadeLabel_idGravidade}" for="idGravidade" />
+                    <h:inputText id="idGravidade" value="#{gravidadeController.selected.idGravidade}" title="#{bundle.EditGravidadeTitle_idGravidade}" required="true" requiredMessage="#{bundle.EditGravidadeRequiredMessage_idGravidade}"/>
+                    <h:outputLabel value="#{bundle.EditGravidadeLabel_nome}" for="nome" />
+                    <h:inputText id="nome" value="#{gravidadeController.selected.nome}" title="#{bundle.EditGravidadeTitle_nome}" required="true" requiredMessage="#{bundle.EditGravidadeRequiredMessage_nome}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{gravidadeController.update}" value="#{bundle.EditGravidadeSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditGravidadeViewLink}"/>
+                <br />
+                <h:commandLink action="#{gravidadeController.prepareList}" value="#{bundle.EditGravidadeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditGravidadeIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

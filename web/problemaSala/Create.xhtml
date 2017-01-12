@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProblemaSalaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProblemaSalaLabel_dataIdentificacao}" for="dataIdentificacao" />
+                    <h:inputText id="dataIdentificacao" value="#{problemaSalaController.selected.dataIdentificacao}" title="#{bundle.CreateProblemaSalaTitle_dataIdentificacao}" required="true" requiredMessage="#{bundle.CreateProblemaSalaRequiredMessage_dataIdentificacao}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateProblemaSalaLabel_idProblemaSala}" for="idProblemaSala" />
+                    <h:inputText id="idProblemaSala" value="#{problemaSalaController.selected.idProblemaSala}" title="#{bundle.CreateProblemaSalaTitle_idProblemaSala}" required="true" requiredMessage="#{bundle.CreateProblemaSalaRequiredMessage_idProblemaSala}"/>
+                    <h:outputLabel value="#{bundle.CreateProblemaSalaLabel_idProblema}" for="idProblema" />
+                    <h:selectOneMenu id="idProblema" value="#{problemaSalaController.selected.idProblema}" title="#{bundle.CreateProblemaSalaTitle_idProblema}" required="true" requiredMessage="#{bundle.CreateProblemaSalaRequiredMessage_idProblema}">
+                        <f:selectItems value="#{problemaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProblemaSalaLabel_idSala}" for="idSala" />
+                    <h:selectOneMenu id="idSala" value="#{problemaSalaController.selected.idSala}" title="#{bundle.CreateProblemaSalaTitle_idSala}" required="true" requiredMessage="#{bundle.CreateProblemaSalaRequiredMessage_idSala}">
+                        <f:selectItems value="#{salaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProblemaSalaLabel_idSituacao}" for="idSituacao" />
+                    <h:selectOneMenu id="idSituacao" value="#{problemaSalaController.selected.idSituacao}" title="#{bundle.CreateProblemaSalaTitle_idSituacao}" required="true" requiredMessage="#{bundle.CreateProblemaSalaRequiredMessage_idSituacao}">
+                        <f:selectItems value="#{situacaoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{problemaSalaController.create}" value="#{bundle.CreateProblemaSalaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{problemaSalaController.prepareList}" value="#{bundle.CreateProblemaSalaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProblemaSalaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDefeitosEquipTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDefeitosEquipLabel_dataIdentificacao}" for="dataIdentificacao" />
+                    <h:inputText id="dataIdentificacao" value="#{defeitosEquipController.selected.dataIdentificacao}" title="#{bundle.CreateDefeitosEquipTitle_dataIdentificacao}" required="true" requiredMessage="#{bundle.CreateDefeitosEquipRequiredMessage_dataIdentificacao}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDefeitosEquipLabel_idDefeitoEquip}" for="idDefeitoEquip" />
+                    <h:inputText id="idDefeitoEquip" value="#{defeitosEquipController.selected.idDefeitoEquip}" title="#{bundle.CreateDefeitosEquipTitle_idDefeitoEquip}" required="true" requiredMessage="#{bundle.CreateDefeitosEquipRequiredMessage_idDefeitoEquip}"/>
+                    <h:outputLabel value="#{bundle.CreateDefeitosEquipLabel_idDefeito}" for="idDefeito" />
+                    <h:selectOneMenu id="idDefeito" value="#{defeitosEquipController.selected.idDefeito}" title="#{bundle.CreateDefeitosEquipTitle_idDefeito}" required="true" requiredMessage="#{bundle.CreateDefeitosEquipRequiredMessage_idDefeito}">
+                        <f:selectItems value="#{defeitoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDefeitosEquipLabel_idEquip}" for="idEquip" />
+                    <h:selectOneMenu id="idEquip" value="#{defeitosEquipController.selected.idEquip}" title="#{bundle.CreateDefeitosEquipTitle_idEquip}" required="true" requiredMessage="#{bundle.CreateDefeitosEquipRequiredMessage_idEquip}">
+                        <f:selectItems value="#{equipamentoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDefeitosEquipLabel_idSituacao}" for="idSituacao" />
+                    <h:selectOneMenu id="idSituacao" value="#{defeitosEquipController.selected.idSituacao}" title="#{bundle.CreateDefeitosEquipTitle_idSituacao}" required="true" requiredMessage="#{bundle.CreateDefeitosEquipRequiredMessage_idSituacao}">
+                        <f:selectItems value="#{situacaoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{defeitosEquipController.create}" value="#{bundle.CreateDefeitosEquipSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{defeitosEquipController.prepareList}" value="#{bundle.CreateDefeitosEquipShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDefeitosEquipIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

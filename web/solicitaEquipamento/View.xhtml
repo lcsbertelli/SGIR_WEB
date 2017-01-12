@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSolicitaEquipamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSolicitaEquipamentoLabel_dateSolicitacao}"/>
+                    <h:outputText value="#{solicitaEquipamentoController.selected.dateSolicitacao}" title="#{bundle.ViewSolicitaEquipamentoTitle_dateSolicitacao}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewSolicitaEquipamentoLabel_idSolicitaEquip}"/>
+                    <h:outputText value="#{solicitaEquipamentoController.selected.idSolicitaEquip}" title="#{bundle.ViewSolicitaEquipamentoTitle_idSolicitaEquip}"/>
+                    <h:outputText value="#{bundle.ViewSolicitaEquipamentoLabel_idEquip}"/>
+                    <h:outputText value="#{solicitaEquipamentoController.selected.idEquip}" title="#{bundle.ViewSolicitaEquipamentoTitle_idEquip}"/>
+                    <h:outputText value="#{bundle.ViewSolicitaEquipamentoLabel_idProf}"/>
+                    <h:outputText value="#{solicitaEquipamentoController.selected.idProf}" title="#{bundle.ViewSolicitaEquipamentoTitle_idProf}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{solicitaEquipamentoController.destroyAndView}" value="#{bundle.ViewSolicitaEquipamentoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSolicitaEquipamentoEditLink}"/>
+                <br />
+                <h:commandLink action="#{solicitaEquipamentoController.prepareCreate}" value="#{bundle.ViewSolicitaEquipamentoCreateLink}" />
+                <br />
+                <h:commandLink action="#{solicitaEquipamentoController.prepareList}" value="#{bundle.ViewSolicitaEquipamentoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSolicitaEquipamentoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

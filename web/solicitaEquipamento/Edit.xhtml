@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditSolicitaEquipamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditSolicitaEquipamentoLabel_dateSolicitacao}" for="dateSolicitacao" />
+                    <h:inputText id="dateSolicitacao" value="#{solicitaEquipamentoController.selected.dateSolicitacao}" title="#{bundle.EditSolicitaEquipamentoTitle_dateSolicitacao}" required="true" requiredMessage="#{bundle.EditSolicitaEquipamentoRequiredMessage_dateSolicitacao}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditSolicitaEquipamentoLabel_idSolicitaEquip}" for="idSolicitaEquip" />
+                    <h:inputText id="idSolicitaEquip" value="#{solicitaEquipamentoController.selected.idSolicitaEquip}" title="#{bundle.EditSolicitaEquipamentoTitle_idSolicitaEquip}" required="true" requiredMessage="#{bundle.EditSolicitaEquipamentoRequiredMessage_idSolicitaEquip}"/>
+                    <h:outputLabel value="#{bundle.EditSolicitaEquipamentoLabel_idEquip}" for="idEquip" />
+                    <h:selectOneMenu id="idEquip" value="#{solicitaEquipamentoController.selected.idEquip}" title="#{bundle.EditSolicitaEquipamentoTitle_idEquip}" required="true" requiredMessage="#{bundle.EditSolicitaEquipamentoRequiredMessage_idEquip}">
+                        <f:selectItems value="#{equipamentoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditSolicitaEquipamentoLabel_idProf}" for="idProf" />
+                    <h:selectOneMenu id="idProf" value="#{solicitaEquipamentoController.selected.idProf}" title="#{bundle.EditSolicitaEquipamentoTitle_idProf}" required="true" requiredMessage="#{bundle.EditSolicitaEquipamentoRequiredMessage_idProf}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{solicitaEquipamentoController.update}" value="#{bundle.EditSolicitaEquipamentoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditSolicitaEquipamentoViewLink}"/>
+                <br />
+                <h:commandLink action="#{solicitaEquipamentoController.prepareList}" value="#{bundle.EditSolicitaEquipamentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditSolicitaEquipamentoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

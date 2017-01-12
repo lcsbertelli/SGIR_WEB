@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListControleEquipamentosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListControleEquipamentosEmpty}" rendered="#{controleEquipamentosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{controleEquipamentosController.items.rowCount > 0}">
+                    <h:outputText value="#{controleEquipamentosController.pagination.pageFirstItem + 1}..#{controleEquipamentosController.pagination.pageLastItem + 1}/#{controleEquipamentosController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{controleEquipamentosController.previous}" value="#{bundle.Previous} #{controleEquipamentosController.pagination.pageSize}" rendered="#{controleEquipamentosController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{controleEquipamentosController.next}" value="#{bundle.Next} #{controleEquipamentosController.pagination.pageSize}" rendered="#{controleEquipamentosController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{controleEquipamentosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControleEquipamentosTitle_idControleEquip}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idControleEquip}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControleEquipamentosTitle_dateEntregaEquip}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateEntregaEquip}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControleEquipamentosTitle_dateDevolucaoEquip}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateDevolucaoEquip}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControleEquipamentosTitle_idAssistente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idAssistente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListControleEquipamentosTitle_idReservaEquip}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idReservaEquip}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{controleEquipamentosController.prepareView}" value="#{bundle.ListControleEquipamentosViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{controleEquipamentosController.prepareEdit}" value="#{bundle.ListControleEquipamentosEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{controleEquipamentosController.destroy}" value="#{bundle.ListControleEquipamentosDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{controleEquipamentosController.prepareCreate}" value="#{bundle.ListControleEquipamentosCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListControleEquipamentosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

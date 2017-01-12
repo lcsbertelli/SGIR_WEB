@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProblemaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewProblemaLabel_idProblema}"/>
+                    <h:outputText value="#{problemaController.selected.idProblema}" title="#{bundle.ViewProblemaTitle_idProblema}"/>
+                    <h:outputText value="#{bundle.ViewProblemaLabel_descricao}"/>
+                    <h:outputText value="#{problemaController.selected.descricao}" title="#{bundle.ViewProblemaTitle_descricao}"/>
+                    <h:outputText value="#{bundle.ViewProblemaLabel_idGravidade}"/>
+                    <h:outputText value="#{problemaController.selected.idGravidade}" title="#{bundle.ViewProblemaTitle_idGravidade}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{problemaController.destroyAndView}" value="#{bundle.ViewProblemaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewProblemaEditLink}"/>
+                <br />
+                <h:commandLink action="#{problemaController.prepareCreate}" value="#{bundle.ViewProblemaCreateLink}" />
+                <br />
+                <h:commandLink action="#{problemaController.prepareList}" value="#{bundle.ViewProblemaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewProblemaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

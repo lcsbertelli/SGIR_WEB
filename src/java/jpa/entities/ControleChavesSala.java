@@ -133,6 +133,7 @@ public class ControleChavesSala implements Serializable {
     @Override
     public String toString() {
         return "jpa.entities.ControleChavesSala[ idControleChaves=" + idControleChaves + " ]";
+        
     }
     
 }

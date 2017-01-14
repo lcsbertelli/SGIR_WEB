@@ -157,7 +157,8 @@ public class ReservaSala implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.ReservaSala[ idReservaSala=" + idReservaSala + " ]";
+        //return "jpa.entities.ReservaSala[ idReservaSala=" + idReservaSala + " ]";
+        return " "+ this.dateReserva;
     }
     
 }

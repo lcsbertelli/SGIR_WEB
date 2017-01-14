@@ -18,7 +18,7 @@
                     
                     <h:outputLabel value="#{bundle.CreateReservaSalaLabel_dateReserva}" for="dateReserva" />
                     <h:inputText id="dateReserva" value="#{reservaSalaController.selected.dateReserva}" title="#{bundle.CreateReservaSalaTitle_dateReserva}" required="true" requiredMessage="#{bundle.CreateReservaSalaRequiredMessage_dateReserva}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="yyyy-mm-dd" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.CreateReservaSalaLabel_idDisciplina}" for="idDisciplina" />
                     <h:selectOneMenu id="idDisciplina" value="#{reservaSalaController.selected.idDisciplina}" title="#{bundle.CreateReservaSalaTitle_idDisciplina}" >

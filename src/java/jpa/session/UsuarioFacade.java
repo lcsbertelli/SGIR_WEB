@@ -5,10 +5,13 @@
  */
 package jpa.session;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import jpa.entities.Usuario;
+
+
 
 /**
  *
@@ -29,4 +32,11 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         super(Usuario.class);
     }
     
+    public List<Usuario> buscaUsuarioPorEmailESenha(String email, String senha) {
+    return this.em
+        .createNamedQuery("Usuario.findByEmailANDSenha", Usuario.class)
+        .setParameter("email", email)
+        .setParameter("senha", senha)    
+        .getResultList();       
+    }
 }

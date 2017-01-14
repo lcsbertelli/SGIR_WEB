@@ -6,6 +6,7 @@ import jsf.util.PaginationHelper;
 import jpa.session.UsuarioFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -230,6 +231,14 @@ public class UsuarioController implements Serializable {
             }
         }
 
+    }
+    
+    public void login(String email, String senha) {
+        List<Usuario> usuarios;
+        usuarios = ejbFacade.buscaUsuarioPorEmailESenha(email, senha);
+        if(!(usuarios.isEmpty()))
+            System.out.println("FUNCIONOU PORRA!!!");
+        
     }
 
 }

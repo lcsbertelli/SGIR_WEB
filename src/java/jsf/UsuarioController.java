@@ -255,9 +255,11 @@ public class UsuarioController implements Serializable {
             this.msg="USUÁRIO OU SENHA INVALIDOS";
         } else {
             int tipo = usuario.getIdTipoUsuario().getIdTipoUsuario();
-
+            SessionContext.getInstance().setUsuarioLogado(usuario);
                 switch (tipo) {
                     case 1:
+                        ButtonController but = new ButtonController();
+                        
                         FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
                         break;
                     case 2:

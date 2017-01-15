@@ -8,13 +8,15 @@
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
-        
+        <h:outputLabel value="#{sessionControler.usuarioLogado.idUsu}"/>
+ 
+      
         <br />
-        <h:link outcome="/controleChavesSala/List" value="Show All ControleChavesSala Items"/>
+        <h:link outcome="/controleChavesSala/List" value="Show All ControleChavesSala Items" disabled="#{buttonController.butControleChavesSala}"/>
         <br />
-        <h:link outcome="/controleEquipamentos/List" value="Show All ControleEquipamentos Items"/>
+        <h:link outcome="/controleEquipamentos/List" value="Show All ControleEquipamentos Items" disabled="true" />
         <br />
-        <h:link outcome="/defeito/List" value="Show All Defeito Items"/>
+        <h:link outcome="/defeito/List" value="Show All Defeito Items" />
         <br />
         <h:link outcome="/defeitosEquip/List" value="Show All DefeitosEquip Items"/>
         <br />
@@ -36,7 +38,7 @@
         <br />
         <h:link outcome="/sala/List" value="Show All Sala Items"/>
         <br />
-        <h:link outcome="/salaEquipamento/List" value="Show All SalaEquipamento Items"/>
+        <h:link outcome="/salaEquipamento/List" value="Show All SalaEquipamento Items" />
         <br />
         <h:link outcome="/situacao/List" value="Show All Situacao Items"/>
         <br />

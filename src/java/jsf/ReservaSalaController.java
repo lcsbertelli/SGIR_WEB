@@ -21,7 +21,7 @@ import javax.faces.model.SelectItem;
 @Named("reservaSalaController")
 @SessionScoped
 public class ReservaSalaController implements Serializable {
-
+    private String reservaValidateMsg;
     private ReservaSala current;
     private DataModel items = null;
     @EJB
@@ -78,7 +78,16 @@ public class ReservaSalaController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
+    
+    public void validate(){
 
+  //  if(i==1){
+  //     create();
+  //  }
+  //  else reservaValidateMsg="Data não disponivel";
+    
+    }
+    
     public String create() {
         try {
             getFacade().create(current);

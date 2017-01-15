@@ -40,6 +40,12 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "ReservaSala.findByDateReserva", query = "SELECT r FROM ReservaSala r WHERE r.dateReserva = :dateReserva")})
 public class ReservaSala implements Serializable {
 
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "date_rerva_fim")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateRervaFim;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,7 +55,7 @@ public class ReservaSala implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "date_reserva")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateReserva;
     @JoinColumn(name = "id_disciplina", referencedColumnName = "id_disciplina")
     @ManyToOne
@@ -159,6 +165,14 @@ public class ReservaSala implements Serializable {
     public String toString() {
         //return "jpa.entities.ReservaSala[ idReservaSala=" + idReservaSala + " ]";
         return " "+ this.dateReserva;
+    }
+
+    public Date getDateRervaFim() {
+        return dateRervaFim;
+    }
+
+    public void setDateRervaFim(Date dateRervaFim) {
+        this.dateRervaFim = dateRervaFim;
     }
     
 }

@@ -36,11 +36,17 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "SolicitaEquipamento.findByIdSolicitaEquip", query = "SELECT s FROM SolicitaEquipamento s WHERE s.idSolicitaEquip = :idSolicitaEquip")})
 public class SolicitaEquipamento implements Serializable {
 
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "date_solicitacao_fim")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateSolicitacaoFim;
+
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
     @NotNull
     @Column(name = "date_solicitacao")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateSolicitacao;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -121,6 +127,14 @@ public class SolicitaEquipamento implements Serializable {
     @Override
     public String toString() {
         return "jpa.entities.SolicitaEquipamento[ idSolicitaEquip=" + idSolicitaEquip + " ]";
+    }
+
+    public Date getDateSolicitacaoFim() {
+        return dateSolicitacaoFim;
+    }
+
+    public void setDateSolicitacaoFim(Date dateSolicitacaoFim) {
+        this.dateSolicitacaoFim = dateSolicitacaoFim;
     }
     
 }

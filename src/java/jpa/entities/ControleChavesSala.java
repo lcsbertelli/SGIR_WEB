@@ -46,10 +46,10 @@ public class ControleChavesSala implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "date_entrega_chave")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateEntregaChave;
     @Column(name = "date_devolucao_chave")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateDevolucaoChave;
     @JoinColumn(name = "id_assistente", referencedColumnName = "id_usu")
     @ManyToOne(optional = false)

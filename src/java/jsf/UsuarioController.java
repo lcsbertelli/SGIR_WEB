@@ -1,5 +1,6 @@
 package jsf;
 
+import java.io.IOException;
 import jpa.entities.Usuario;
 import jsf.util.JsfUtil;
 import jsf.util.PaginationHelper;
@@ -8,6 +9,8 @@ import jpa.session.UsuarioFacade;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -24,6 +27,7 @@ import javax.faces.model.SelectItem;
 public class UsuarioController implements Serializable {
 
     private Usuario current;
+    private String msg;
     private DataModel items = null;
     @EJB
     private jpa.session.UsuarioFacade ejbFacade;
@@ -233,11 +237,45 @@ public class UsuarioController implements Serializable {
 
     }
     
-    public void login(String email, String senha) {
-        List<Usuario> usuarios;
-        usuarios = ejbFacade.buscaUsuarioPorEmailESenha(email, senha);
-        if(!(usuarios.isEmpty()))
-            System.out.println("FUNCIONOU PORRA!!!");
+    public void setMsg(String msg){
+    this.msg=msg;
+    }
+    
+    public String getMsg(){
+    return this.msg;
+    }
+    
+    public void login() {
+        
+        Usuario usuario;
+        usuario = ejbFacade.buscaUsuarioPorEmailESenha(this.current.getEmail(), this.current.getSenha());
+        if(null == usuario) {
+        } else {
+            int tipo = usuario.getIdTipoUsuario().getIdTipoUsuario();
+            try {
+                switch (tipo) {
+                    case 1:
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                        break;
+                    case 2:
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+                        break;
+                    case 3:
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+                        break;
+                    case 4:
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+                        break;
+                    default:
+                        System.out.println("Este não é um tipo válido!");
+                }
+                
+                
+                
+            } catch (IOException ex) {
+                Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
         
     }
 

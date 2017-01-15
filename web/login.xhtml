@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">  
+    <head>
+       
+    </head>
+    <body>
+        
+        
+    <h:form>
+    <h:panelGrid columns="2" cellpadding="5">
+        <h:outputText value="E-mail: " />
+        <h:inputText id="vemail" value="#{usuarioController.selected.email}" />
+        
+        <h:outputText value="Senha: " />
+       
+        <p:password id="vsenha" value="#{usuarioController.selected.senha}" feedback="true" />
+        <p:commandButton value="Entrar" id="submit" update="msg" action="#{usuarioController.login}" styleClass="ui-priority-primary" />
+        <h:outputText id="msg" value="#{usuarioController.msg}"></h:outputText>
+        <h:commandLink action="#{usuarioController.login}"  value="LOGIN"/>
+        
+    </h:panelGrid>
+ 
+    </h:form>
+        
+        
+        
+    </body>
+</html>

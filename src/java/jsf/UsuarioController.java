@@ -251,13 +251,15 @@ public class UsuarioController implements Serializable {
         try {
         usuario = ejbFacade.buscaUsuarioPorEmailESenha(this.current.getEmail(), this.current.getSenha());
 
-        if(null == usuario) {
-            this.msg="USUÁRIO OU SENHA INVALIDOS";
+        if(usuario == null) {
+            this.msg="USUÁRIO OU SENHA INVALIDOS"; // acho q ele nunca entra aqui
         } else {
             int tipo = usuario.getIdTipoUsuario().getIdTipoUsuario();
-
+            SessionContext.getInstance().setUsuarioLogado(usuario);
                 switch (tipo) {
                     case 1:
+                        ButtonController but = new ButtonController();
+                        
                         FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
                         break;
                     case 2:

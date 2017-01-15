@@ -19,7 +19,11 @@
                     <h:inputText id="idReservaEquip" value="#{reservaEquipamentoController.selected.idReservaEquip}" title="#{bundle.EditReservaEquipamentoTitle_idReservaEquip}" required="true" requiredMessage="#{bundle.EditReservaEquipamentoRequiredMessage_idReservaEquip}"/>
                     <h:outputLabel value="#{bundle.EditReservaEquipamentoLabel_dateReserva}" for="dateReserva" />
                     <h:inputText id="dateReserva" value="#{reservaEquipamentoController.selected.dateReserva}" title="#{bundle.EditReservaEquipamentoTitle_dateReserva}" required="true" requiredMessage="#{bundle.EditReservaEquipamentoRequiredMessage_dateReserva}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditReservaEquipamentoLabel_dateReservaFim}" for="dateReservaFim" />
+                    <h:inputText id="dateReservaFim" value="#{reservaEquipamentoController.selected.dateReservaFim}" title="#{bundle.EditReservaEquipamentoTitle_dateReservaFim}" required="true" requiredMessage="#{bundle.EditReservaEquipamentoRequiredMessage_dateReservaFim}">
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.EditReservaEquipamentoLabel_idEquip}" for="idEquip" />
                     <h:selectOneMenu id="idEquip" value="#{reservaEquipamentoController.selected.idEquip}" title="#{bundle.EditReservaEquipamentoTitle_idEquip}" required="true" requiredMessage="#{bundle.EditReservaEquipamentoRequiredMessage_idEquip}">

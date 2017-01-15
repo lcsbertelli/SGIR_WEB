@@ -257,16 +257,15 @@ public class UsuarioController implements Serializable {
             int tipo = usuario.getIdTipoUsuario().getIdTipoUsuario();
             SessionContext.getInstance().setUsuarioLogado(usuario);
                 switch (tipo) {
-                    case 1:
-                        ButtonController but = new ButtonController();
+                    case 1:                     
                         
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/admin.xhtml");
                         break;
                     case 2:
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/assist.xhtml");
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/ger.xhtml");
                         break;
                     case 3:
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/ger.xhtml");
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/assist.xhtml");
                         break;
                     case 4:
                         FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/prof.xhtml");

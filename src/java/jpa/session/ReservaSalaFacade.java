@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import jpa.entities.ReservaSala;
+import java.util.Date;
 
 /**
  *
@@ -27,6 +28,14 @@ public class ReservaSalaFacade extends AbstractFacade<ReservaSala> {
 
     public ReservaSalaFacade() {
         super(ReservaSala.class);
+    }
+    
+    public ReservaSala validaReservaSalaFacade(Date dateReserva, Date dateReservaFim) {
+    return this.em
+        .createNamedQuery("ReservaSala.validaReservaSala", ReservaSala.class)
+        .setParameter("dateReserva", dateReserva)
+        .setParameter("dateReservaFim", dateReservaFim)    
+        .getSingleResult();       
     }
     
 }

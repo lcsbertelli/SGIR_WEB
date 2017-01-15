@@ -26,7 +26,7 @@
                         <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.CreateReservaSalaLabel_idDisciplina}" for="idDisciplina" />
-                    <h:selectOneMenu id="idDisciplina" value="#{reservaSalaController.selected.idDisciplina}" title="#{bundle.CreateReservaSalaTitle_idDisciplina}" >
+                    <p:selectOneMenu id="idDisciplina" value="#{reservaSalaController.selected.idDisciplina}" title="#{bundle.CreateReservaSalaTitle_idDisciplina}" >
                         <f:selectItems value="#{disciplinaController.itemsAvailableSelectOne}"/>
                     </p:selectOneMenu>
                     <p:outputLabel value="#{bundle.CreateReservaSalaLabel_idGerente}" for="idGerente" />

@@ -18,11 +18,11 @@
                     
                     <h:outputLabel value="#{bundle.CreateControleChavesSalaLabel_dateEntregaChave}" for="dateEntregaChave" />
                     <h:inputText id="dateEntregaChave" value="#{controleChavesSalaController.selected.dateEntregaChave}" title="#{bundle.CreateControleChavesSalaTitle_dateEntregaChave}" required="true" requiredMessage="#{bundle.CreateControleChavesSalaRequiredMessage_dateEntregaChave}">
-                        <f:convertDateTime pattern="yyyy-mm-dd" />
+                        <f:convertDateTime pattern="yyyy-MM-dd hh:mm:ss" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.CreateControleChavesSalaLabel_dateDevolucaoChave}" for="dateDevolucaoChave" />
                     <h:inputText id="dateDevolucaoChave" value="#{controleChavesSalaController.selected.dateDevolucaoChave}" title="#{bundle.CreateControleChavesSalaTitle_dateDevolucaoChave}" >
-                        <f:convertDateTime pattern="yyyy-mm-dd" />
+                        <f:convertDateTime pattern="yyyy-MM-dd hh:mm:ss" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.CreateControleChavesSalaLabel_idAssistente}" for="idAssistente" />
                     <h:selectOneMenu id="idAssistente" value="#{controleChavesSalaController.selected.idAssistente}" title="#{bundle.CreateControleChavesSalaTitle_idAssistente}" required="true" requiredMessage="#{bundle.CreateControleChavesSalaRequiredMessage_idAssistente}">

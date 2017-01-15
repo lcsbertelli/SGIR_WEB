@@ -248,11 +248,14 @@ public class UsuarioController implements Serializable {
     public void login() {
         
         Usuario usuario;
+        try {
         usuario = ejbFacade.buscaUsuarioPorEmailESenha(this.current.getEmail(), this.current.getSenha());
+
         if(null == usuario) {
+            this.msg="USUÁRIO OU SENHA INVALIDOS";
         } else {
             int tipo = usuario.getIdTipoUsuario().getIdTipoUsuario();
-            try {
+
                 switch (tipo) {
                     case 1:
                         FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
@@ -268,16 +271,18 @@ public class UsuarioController implements Serializable {
                         break;
                     default:
                         System.out.println("Este não é um tipo válido!");
+                
                 }
-              
-                
-                
-                
-            } catch (IOException ex) {
-                Logger.getLogger(UsuarioController.class.getName()).log(Level.SEVERE, null, ex);
-            }    
+            }
+        }
+                    
+        catch(Exception ex)
+        {
+        this.msg="LOGIN OU SENHA INVALIDOS";
+        }
+ 
         }
         
     }
 
-}
+

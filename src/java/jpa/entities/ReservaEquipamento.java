@@ -42,9 +42,9 @@ public class ReservaEquipamento implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Column(name = "date_rerva_fim")
+    @Column(name = "date_reserva_fim")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dateRervaFim;
+    private Date dateReservaFim;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -155,12 +155,12 @@ public class ReservaEquipamento implements Serializable {
         return "jpa.entities.ReservaEquipamento[ idReservaEquip=" + idReservaEquip + " ]";
     }
 
-    public Date getDateRervaFim() {
-        return dateRervaFim;
+    public Date getDateReservaFim() {
+        return dateReservaFim;
     }
 
-    public void setDateRervaFim(Date dateRervaFim) {
-        this.dateRervaFim = dateRervaFim;
+    public void setDateReservaFim(Date dateReservaFim) {
+        this.dateReservaFim = dateReservaFim;
     }
     
 }

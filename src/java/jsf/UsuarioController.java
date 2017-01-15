@@ -255,7 +255,7 @@ public class UsuarioController implements Serializable {
             this.msg="USUÁRIO OU SENHA INVALIDOS"; // acho q ele nunca entra aqui
         } else {
             int tipo = usuario.getIdTipoUsuario().getIdTipoUsuario();
-            SessionContext.getInstance().setUsuarioLogado(usuario);
+            
                 switch (tipo) {
                     case 1:                     
                         

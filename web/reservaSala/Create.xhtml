@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -14,7 +15,7 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
+                <p:panelGrid columns="2">
                     
                     <h:outputLabel value="#{bundle.CreateReservaSalaLabel_dateReserva}" for="dateReserva" />
                     <h:inputText id="dateReserva" value="#{reservaSalaController.selected.dateReserva}" title="#{bundle.CreateReservaSalaTitle_dateReserva}" required="true" requiredMessage="#{bundle.CreateReservaSalaRequiredMessage_dateReserva}">
@@ -23,28 +24,28 @@
                     <h:outputLabel value="#{bundle.CreateReservaSalaLabel_idDisciplina}" for="idDisciplina" />
                     <h:selectOneMenu id="idDisciplina" value="#{reservaSalaController.selected.idDisciplina}" title="#{bundle.CreateReservaSalaTitle_idDisciplina}" >
                         <f:selectItems value="#{disciplinaController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateReservaSalaLabel_idGerente}" for="idGerente" />
-                    <h:selectOneMenu id="idGerente" value="#{reservaSalaController.selected.idGerente}" title="#{bundle.CreateReservaSalaTitle_idGerente}" required="true" requiredMessage="#{bundle.CreateReservaSalaRequiredMessage_idGerente}">
+                    </p:selectOneMenu>
+                    <p:outputLabel value="#{bundle.CreateReservaSalaLabel_idGerente}" for="idGerente" />
+                    <p:selectOneMenu id="idGerente" value="#{reservaSalaController.selected.idGerente}" title="#{bundle.CreateReservaSalaTitle_idGerente}" required="true" requiredMessage="#{bundle.CreateReservaSalaRequiredMessage_idGerente}">
                         <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateReservaSalaLabel_idProf}" for="idProf" />
-                    <h:selectOneMenu id="idProf" value="#{reservaSalaController.selected.idProf}" title="#{bundle.CreateReservaSalaTitle_idProf}" required="true" requiredMessage="#{bundle.CreateReservaSalaRequiredMessage_idProf}">
+                    </p:selectOneMenu>
+                    <p:outputLabel value="#{bundle.CreateReservaSalaLabel_idProf}" for="idProf" />
+                    <p:selectOneMenu id="idProf" value="#{reservaSalaController.selected.idProf}" title="#{bundle.CreateReservaSalaTitle_idProf}" required="true" requiredMessage="#{bundle.CreateReservaSalaRequiredMessage_idProf}">
                         <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateReservaSalaLabel_idSala}" for="idSala" />
-                    <h:selectOneMenu id="idSala" value="#{reservaSalaController.selected.idSala}" title="#{bundle.CreateReservaSalaTitle_idSala}" required="true" requiredMessage="#{bundle.CreateReservaSalaRequiredMessage_idSala}">
+                    </p:selectOneMenu>
+                    <p:outputLabel value="#{bundle.CreateReservaSalaLabel_idSala}" for="idSala" />
+                    <p:selectOneMenu id="idSala" value="#{reservaSalaController.selected.idSala}" title="#{bundle.CreateReservaSalaTitle_idSala}" required="true" requiredMessage="#{bundle.CreateReservaSalaRequiredMessage_idSala}">
                         <f:selectItems value="#{salaController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                </h:panelGrid>
+                    </p:selectOneMenu>
+                </p:panelGrid>
                 <br />
-                <h:commandLink action="#{reservaSalaController.create}" value="#{bundle.CreateReservaSalaSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{reservaSalaController.prepareList}" value="#{bundle.CreateReservaSalaShowAllLink}" immediate="true"/>
+                <p:commandButton action="#{reservaSalaController.create}" value="#{bundle.CreateReservaSalaSaveLink}" ajax="false"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateReservaSalaIndexLink}"/>
+                <p:commandButton action="#{reservaSalaController.prepareList}" value="#{bundle.CreateReservaSalaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <p:link outcome="/index" value="#{bundle.CreateReservaSalaIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

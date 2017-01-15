@@ -2,7 +2,7 @@
 <jdbc-data-source xmlns="http://xmlns.oracle.com/weblogic/jdbc-data-source">
   <name>jdbc/sgir</name>
   <jdbc-driver-params>
-    <url>jdbc:mysql://localhost:3306/sgir?zeroDateTimeBehavior=convertToNull</url>
+    <url>jdbc:mysql://localhost:3306/SGIR?zeroDateTimeBehavior=convertToNull</url>
     <driver-name>com.mysql.jdbc.Driver</driver-name>
     <properties>
       <property>

@@ -37,14 +37,17 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "ReservaSala.findAll", query = "SELECT r FROM ReservaSala r")
     , @NamedQuery(name = "ReservaSala.findByIdReservaSala", query = "SELECT r FROM ReservaSala r WHERE r.idReservaSala = :idReservaSala")
-    , @NamedQuery(name = "ReservaSala.findByDateReserva", query = "SELECT r FROM ReservaSala r WHERE r.dateReserva = :dateReserva")})
+    , @NamedQuery(name = "ReservaSala.findByDateReserva", query = "SELECT r FROM ReservaSala r WHERE r.dateReserva = :dateReserva")
+    , @NamedQuery(name = "ReservaSala.validaReservaSala", query = "SELECT r FROM ReservaSala r WHERE r.dateReserva = :dateReserva")})
+
+    
 public class ReservaSala implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Column(name = "date_rerva_fim")
+    @Column(name = "date_reserva_fim")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dateRervaFim;
+    private Date dateReservaFim;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -167,12 +170,12 @@ public class ReservaSala implements Serializable {
         return " "+ this.dateReserva;
     }
 
-    public Date getDateRervaFim() {
-        return dateRervaFim;
+    public Date getDateReservaFim() {
+        return dateReservaFim;
     }
 
-    public void setDateRervaFim(Date dateRervaFim) {
-        this.dateRervaFim = dateRervaFim;
+    public void setDateReservaFim(Date dateReservaFim) {
+        this.dateReservaFim = dateReservaFim;
     }
     
 }

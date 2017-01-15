@@ -59,16 +59,16 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <p:commandButton action="#{controleEquipamentosController.prepareView}" value="#{bundle.ListControleEquipamentosViewLink}"/>
+                            <p:commandButton action="#{controleEquipamentosController.prepareView}" value="#{bundle.ListControleEquipamentosViewLink}" ajax = "false"/>
                             <h:outputText value=" "/>
-                            <p:commandButton action="#{controleEquipamentosController.prepareEdit}" value="#{bundle.ListControleEquipamentosEditLink}"/>
+                            <p:commandButton action="#{controleEquipamentosController.prepareEdit}" value="#{bundle.ListControleEquipamentosEditLink}" ajax = "false"/>
                             <h:outputText value=" "/>
-                            <p:commandButton action="#{controleEquipamentosController.destroy}" value="#{bundle.ListControleEquipamentosDestroyLink}"/>
+                            <p:commandButton action="#{controleEquipamentosController.destroy}" value="#{bundle.ListControleEquipamentosDestroyLink}" ajax = "false"/>
                         </p:column>
                     </p:dataTable>
                 </h:panelGroup>
                 <br />
-                <p:commandButton action="#{controleEquipamentosController.prepareCreate}" value="#{bundle.ListControleEquipamentosCreateLink}"/>
+                <p:commandButton action="#{controleEquipamentosController.prepareCreate}" value="#{bundle.ListControleEquipamentosCreateLink}" ajax = "false"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ListControleEquipamentosIndexLink}"/>

@@ -26,7 +26,7 @@
                          <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.CreateControleEquipamentosLabel_idAssistente}" for="idAssistente" />
-                    <h:selectOneMenu id="idAssistente" value="#{controleEquipamentosController.selected.idAssistente}" title="#{bundle.CreateControleEquipamentosTitle_idAssistente}" required="true" requiredMessage="#{bundle.CreateControleEquipamentosRequiredMessage_idAssistente}">
+                    <p:selectOneMenu id="idAssistente" value="#{controleEquipamentosController.selected.idAssistente}" title="#{bundle.CreateControleEquipamentosTitle_idAssistente}" required="true" requiredMessage="#{bundle.CreateControleEquipamentosRequiredMessage_idAssistente}">
                         <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
                     </p:selectOneMenu>
                     <p:outputLabel value="#{bundle.CreateControleEquipamentosLabel_idReservaEquip}" for="idReservaEquip" />
@@ -35,7 +35,7 @@
                     </p:selectOneMenu>
                 </p:panelGrid>
                 <br />
-                <p:commandButton action="#{controleEquipamentosController.create}" value="#{bundle.CreateControleEquipamentosSaveLink}" />
+                <p:commandButton action="#{controleEquipamentosController.create}" value="#{bundle.CreateControleEquipamentosSaveLink}" ajax ="false"/>
                 <br />
                 <br />
                 <p:commandButton action="#{controleEquipamentosController.prepareList}" value="#{bundle.CreateControleEquipamentosShowAllLink}" immediate="true"/>

@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "ReservaSala.findAll", query = "SELECT r FROM ReservaSala r")
     , @NamedQuery(name = "ReservaSala.findByIdReservaSala", query = "SELECT r FROM ReservaSala r WHERE r.idReservaSala = :idReservaSala")
     , @NamedQuery(name = "ReservaSala.findByDateReserva", query = "SELECT r FROM ReservaSala r WHERE r.dateReserva = :dateReserva")
-    , @NamedQuery(name = "ReservaSala.validaReservaSala", query = "SELECT r FROM ReservaSala r WHERE r.dateReserva = :dateReserva")})
+    , @NamedQuery(name = "ReservaSala.validaReservaSala", query = "SELECT r FROM ReservaSala r WHERE r.dateReserva BETWEEN :dateReserva  AND :dateReservaFim")})
 
     
 public class ReservaSala implements Serializable {

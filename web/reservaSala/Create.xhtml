@@ -21,8 +21,12 @@
                     <h:inputText id="dateReserva" value="#{reservaSalaController.selected.dateReserva}" title="#{bundle.CreateReservaSalaTitle_dateReserva}" required="true" requiredMessage="#{bundle.CreateReservaSalaRequiredMessage_dateReserva}">
                         <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateReservaSalaLabel_dateReservaFim}" for="dateReservaFim" />
+                    <h:inputText id="dateReservaFim" value="#{reservaSalaController.selected.dateReservaFim}" title="#{bundle.CreateReservaSalaTitle_dateReservaFim}" required="true" requiredMessage="#{bundle.CreateReservaSalaRequiredMessage_dateReservaFim}">
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+                    </h:inputText>
                     <h:outputLabel value="#{bundle.CreateReservaSalaLabel_idDisciplina}" for="idDisciplina" />
-                    <h:selectOneMenu id="idDisciplina" value="#{reservaSalaController.selected.idDisciplina}" title="#{bundle.CreateReservaSalaTitle_idDisciplina}" >
+                    <p:selectOneMenu id="idDisciplina" value="#{reservaSalaController.selected.idDisciplina}" title="#{bundle.CreateReservaSalaTitle_idDisciplina}" >
                         <f:selectItems value="#{disciplinaController.itemsAvailableSelectOne}"/>
                     </p:selectOneMenu>
                     <p:outputLabel value="#{bundle.CreateReservaSalaLabel_idGerente}" for="idGerente" />

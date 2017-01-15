@@ -46,10 +46,10 @@ public class ControleEquipamentos implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "date_entrega_equip")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateEntregaEquip;
     @Column(name = "date_devolucao_equip")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateDevolucaoEquip;
     @JoinColumn(name = "id_assistente", referencedColumnName = "id_usu")
     @ManyToOne(optional = false)

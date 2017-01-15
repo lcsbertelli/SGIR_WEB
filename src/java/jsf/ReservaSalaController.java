@@ -18,10 +18,20 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
+import java.util.List;
+
 @Named("reservaSalaController")
 @SessionScoped
 public class ReservaSalaController implements Serializable {
     private String reservaValidateMsg;
+
+    public ReservaSala getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(ReservaSala current) {
+        this.current = current;
+    }
     private ReservaSala current;
     private DataModel items = null;
     @EJB
@@ -80,15 +90,34 @@ public class ReservaSalaController implements Serializable {
     }
     
     public void validate(){
+       List<ReservaSala> reservasala;
+      
 
-  //  if(i==1){
-  //     create();
-  //  }
-  //  else reservaValidateMsg="Data não disponivel";
-    
+        try{
+            reservasala = ejbFacade.validaReservaSalaFacade(current.getDateReserva(), current.getDateReservaFim());
+            if(reservasala.isEmpty()){ // se nao tem reserva contido nesse periodo escolhido                          
+               getFacade().create(current);
+            }
+            else this.reservaValidateMsg ="Data não disponivel";
+
+            }catch(Exception e) {
+            System.out.println("excecao");
+            
+           }
     }
     
-    public String create() {
+    
+    public String getReservaValidateMsg(){
+                return this.reservaValidateMsg; 
+    }
+
+            public void setReservaValidateMsg(String msg){
+            this.reservaValidateMsg=msg;
+            }
+
+    
+    
+    public String create(){
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("ReservaSalaCreated"));
@@ -96,7 +125,7 @@ public class ReservaSalaController implements Serializable {
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/resources/Bundle").getString("PersistenceErrorOccured"));
             return null;
-        }
+        } 
     }
 
     public String prepareEdit() {
@@ -204,6 +233,8 @@ public class ReservaSalaController implements Serializable {
     @FacesConverter(forClass = ReservaSala.class)
     public static class ReservaSalaControllerConverter implements Converter {
 
+        private String reservaValidateMsg;
+
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
@@ -238,7 +269,13 @@ public class ReservaSalaController implements Serializable {
                 throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + ReservaSala.class.getName());
             }
         }
+        
+        
 
     }
 
+
+
 }
+
+

@@ -11,6 +11,8 @@ import javax.persistence.PersistenceContext;
 import jpa.entities.ReservaSala;
 import java.util.Date;
 
+import java.util.List;
+
 /**
  *
  * @author lucas
@@ -30,12 +32,12 @@ public class ReservaSalaFacade extends AbstractFacade<ReservaSala> {
         super(ReservaSala.class);
     }
     
-    public ReservaSala validaReservaSalaFacade(Date dateReserva, Date dateReservaFim) {
+    public List<ReservaSala> validaReservaSalaFacade(Date dateReserva, Date dateReservaFim) {
     return this.em
         .createNamedQuery("ReservaSala.validaReservaSala", ReservaSala.class)
         .setParameter("dateReserva", dateReserva)
         .setParameter("dateReservaFim", dateReservaFim)    
-        .getSingleResult();       
+        .getResultList();       
     }
     
 }

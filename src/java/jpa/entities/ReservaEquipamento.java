@@ -152,7 +152,8 @@ public class ReservaEquipamento implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.ReservaEquipamento[ idReservaEquip=" + idReservaEquip + " ]";
+        //return "jpa.entities.ReservaEquipamento[ idReservaEquip=" + idReservaEquip + " ]";
+        return " Dt. Inicio: "+ this.dateReserva + " - Dt. Fim: " + this.dateReservaFim;
     }
 
     public Date getDateReservaFim() {
@@ -162,5 +163,7 @@ public class ReservaEquipamento implements Serializable {
     public void setDateReservaFim(Date dateReservaFim) {
         this.dateReservaFim = dateReservaFim;
     }
+    
+   
     
 }

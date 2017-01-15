@@ -25,7 +25,15 @@
                                 <h:outputText value="#{bundle.ListSolicitaEquipamentoTitle_dateSolicitacao}"/>
                             </f:facet>
                             <h:outputText value="#{item.dateSolicitacao}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                                <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                         <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSolicitaEquipamentoTitle_dateSolicitacaoFim}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateSolicitacaoFim}">
+                                <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                             </h:outputText>
                         </h:column>
                         <h:column>

@@ -17,7 +17,11 @@
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewSolicitaEquipamentoLabel_dateSolicitacao}"/>
                     <h:outputText value="#{solicitaEquipamentoController.selected.dateSolicitacao}" title="#{bundle.ViewSolicitaEquipamentoTitle_dateSolicitacao}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+                    </h:outputText>
+                      <h:outputText value="#{bundle.ViewSolicitaEquipamentoLabel_dateSolicitacaoFim}"/>
+                    <h:outputText value="#{solicitaEquipamentoController.selected.dateSolicitacaoFim}" title="#{bundle.ViewSolicitaEquipamentoTitle_dateSolicitacaoFim}">
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:outputText>
                     <h:outputText value="#{bundle.ViewSolicitaEquipamentoLabel_idSolicitaEquip}"/>
                     <h:outputText value="#{solicitaEquipamentoController.selected.idSolicitaEquip}" title="#{bundle.ViewSolicitaEquipamentoTitle_idSolicitaEquip}"/>

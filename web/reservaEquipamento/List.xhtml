@@ -31,7 +31,15 @@
                                 <h:outputText value="#{bundle.ListReservaEquipamentoTitle_dateReserva}"/>
                             </f:facet>
                             <h:outputText value="#{item.dateReserva}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                                <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                          <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListReservaEquipamentoTitle_dateReservaFim}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateReservaFim}">
+                                <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                             </h:outputText>
                         </h:column>
                         <h:column>

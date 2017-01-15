@@ -17,7 +17,11 @@
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewSolicitaSalaLabel_dateSolicitacao}"/>
                     <h:outputText value="#{solicitaSalaController.selected.dateSolicitacao}" title="#{bundle.ViewSolicitaSalaTitle_dateSolicitacao}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+                    </h:outputText>
+                     <h:outputText value="#{bundle.ViewSolicitaSalaLabel_dateSolicitacaoFim}"/>
+                    <h:outputText value="#{solicitaSalaController.selected.dateSolicitacaoFim}" title="#{bundle.ViewSolicitaSalaTitle_dateSolicitacaoFim}">
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:outputText>
                     <h:outputText value="#{bundle.ViewSolicitaSalaLabel_idSolicitaSala}"/>
                     <h:outputText value="#{solicitaSalaController.selected.idSolicitaSala}" title="#{bundle.ViewSolicitaSalaTitle_idSolicitaSala}"/>

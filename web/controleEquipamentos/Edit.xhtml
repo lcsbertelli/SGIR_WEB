@@ -19,11 +19,11 @@
                     <h:inputText id="idControleEquip" value="#{controleEquipamentosController.selected.idControleEquip}" title="#{bundle.EditControleEquipamentosTitle_idControleEquip}" required="true" requiredMessage="#{bundle.EditControleEquipamentosRequiredMessage_idControleEquip}"/>
                     <h:outputLabel value="#{bundle.EditControleEquipamentosLabel_dateEntregaEquip}" for="dateEntregaEquip" />
                     <h:inputText id="dateEntregaEquip" value="#{controleEquipamentosController.selected.dateEntregaEquip}" title="#{bundle.EditControleEquipamentosTitle_dateEntregaEquip}" required="true" requiredMessage="#{bundle.EditControleEquipamentosRequiredMessage_dateEntregaEquip}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.EditControleEquipamentosLabel_dateDevolucaoEquip}" for="dateDevolucaoEquip" />
                     <h:inputText id="dateDevolucaoEquip" value="#{controleEquipamentosController.selected.dateDevolucaoEquip}" title="#{bundle.EditControleEquipamentosTitle_dateDevolucaoEquip}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.EditControleEquipamentosLabel_idAssistente}" for="idAssistente" />
                     <h:selectOneMenu id="idAssistente" value="#{controleEquipamentosController.selected.idAssistente}" title="#{bundle.EditControleEquipamentosTitle_idAssistente}" required="true" requiredMessage="#{bundle.EditControleEquipamentosRequiredMessage_idAssistente}">

@@ -17,7 +17,11 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditSolicitaEquipamentoLabel_dateSolicitacao}" for="dateSolicitacao" />
                     <h:inputText id="dateSolicitacao" value="#{solicitaEquipamentoController.selected.dateSolicitacao}" title="#{bundle.EditSolicitaEquipamentoTitle_dateSolicitacao}" required="true" requiredMessage="#{bundle.EditSolicitaEquipamentoRequiredMessage_dateSolicitacao}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+                    </h:inputText>
+                     <h:outputLabel value="#{bundle.EditSolicitaEquipamentoLabel_dateSolicitacaoFim}" for="dateSolicitacaoFim" />
+                    <h:inputText id="dateSolicitacaoFim" value="#{solicitaEquipamentoController.selected.dateSolicitacaoFim}" title="#{bundle.EditSolicitaEquipamentoTitle_dateSolicitacaoFim}" required="true" requiredMessage="#{bundle.EditSolicitaEquipamentoRequiredMessage_dateSolicitacaoFim}">
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.EditSolicitaEquipamentoLabel_idSolicitaEquip}" for="idSolicitaEquip" />
                     <h:inputText id="idSolicitaEquip" value="#{solicitaEquipamentoController.selected.idSolicitaEquip}" title="#{bundle.EditSolicitaEquipamentoTitle_idSolicitaEquip}" required="true" requiredMessage="#{bundle.EditSolicitaEquipamentoRequiredMessage_idSolicitaEquip}"/>

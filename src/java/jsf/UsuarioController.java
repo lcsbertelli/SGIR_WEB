@@ -261,13 +261,13 @@ public class UsuarioController implements Serializable {
                         FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
                         break;
                     case 2:
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/assist.xhtml");
                         break;
                     case 3:
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/ger.xhtml");
                         break;
                     case 4:
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/prof.xhtml");
                         break;
                     default:
                         System.out.println("Este não é um tipo válido!");

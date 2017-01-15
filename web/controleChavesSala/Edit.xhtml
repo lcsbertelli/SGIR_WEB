@@ -19,11 +19,11 @@
                     <h:inputText id="idControleChaves" value="#{controleChavesSalaController.selected.idControleChaves}" title="#{bundle.EditControleChavesSalaTitle_idControleChaves}" required="true" requiredMessage="#{bundle.EditControleChavesSalaRequiredMessage_idControleChaves}"/>
                     <h:outputLabel value="#{bundle.EditControleChavesSalaLabel_dateEntregaChave}" for="dateEntregaChave" />
                     <h:inputText id="dateEntregaChave" value="#{controleChavesSalaController.selected.dateEntregaChave}" title="#{bundle.EditControleChavesSalaTitle_dateEntregaChave}" required="true" requiredMessage="#{bundle.EditControleChavesSalaRequiredMessage_dateEntregaChave}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.EditControleChavesSalaLabel_dateDevolucaoChave}" for="dateDevolucaoChave" />
                     <h:inputText id="dateDevolucaoChave" value="#{controleChavesSalaController.selected.dateDevolucaoChave}" title="#{bundle.EditControleChavesSalaTitle_dateDevolucaoChave}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:inputText>
                     <h:outputLabel value="#{bundle.EditControleChavesSalaLabel_idAssistente}" for="idAssistente" />
                     <h:selectOneMenu id="idAssistente" value="#{controleChavesSalaController.selected.idAssistente}" title="#{bundle.EditControleChavesSalaTitle_idAssistente}" required="true" requiredMessage="#{bundle.EditControleChavesSalaRequiredMessage_idAssistente}">

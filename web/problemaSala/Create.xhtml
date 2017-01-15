@@ -17,10 +17,10 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateProblemaSalaLabel_dataIdentificacao}" for="dataIdentificacao" />
                     <h:inputText id="dataIdentificacao" value="#{problemaSalaController.selected.dataIdentificacao}" title="#{bundle.CreateProblemaSalaTitle_dataIdentificacao}" required="true" requiredMessage="#{bundle.CreateProblemaSalaRequiredMessage_dataIdentificacao}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="yyyy-MM-dd" />
                     </h:inputText>
-                    
-                    
+                    <h:outputLabel value="#{bundle.CreateProblemaSalaLabel_idProblema}" for="idProblema" />
+                    <h:selectOneMenu id="idProblema" value="#{problemaSalaController.selected.idProblema}" title="#{bundle.CreateProblemaSalaTitle_idProblema}" required="true" requiredMessage="#{bundle.CreateProblemaSalaRequiredMessage_idProblema}">
                         <f:selectItems value="#{problemaController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateProblemaSalaLabel_idSala}" for="idSala" />

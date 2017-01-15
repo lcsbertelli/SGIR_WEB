@@ -22,9 +22,7 @@
                      <h:outputLabel value="#{bundle.EditSolicitaEquipamentoLabel_dateSolicitacaoFim}" for="dateSolicitacaoFim" />
                     <h:inputText id="dateSolicitacaoFim" value="#{solicitaEquipamentoController.selected.dateSolicitacaoFim}" title="#{bundle.EditSolicitaEquipamentoTitle_dateSolicitacaoFim}" required="true" requiredMessage="#{bundle.EditSolicitaEquipamentoRequiredMessage_dateSolicitacaoFim}">
                         <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
-                    </h:inputText>
-                    <h:outputLabel value="#{bundle.EditSolicitaEquipamentoLabel_idSolicitaEquip}" for="idSolicitaEquip" />
-                    <h:inputText id="idSolicitaEquip" value="#{solicitaEquipamentoController.selected.idSolicitaEquip}" title="#{bundle.EditSolicitaEquipamentoTitle_idSolicitaEquip}" required="true" requiredMessage="#{bundle.EditSolicitaEquipamentoRequiredMessage_idSolicitaEquip}"/>
+                    </h:inputText>                    
                     <h:outputLabel value="#{bundle.EditSolicitaEquipamentoLabel_idEquip}" for="idEquip" />
                     <h:selectOneMenu id="idEquip" value="#{solicitaEquipamentoController.selected.idEquip}" title="#{bundle.EditSolicitaEquipamentoTitle_idEquip}" required="true" requiredMessage="#{bundle.EditSolicitaEquipamentoRequiredMessage_idEquip}">
                         <f:selectItems value="#{equipamentoController.itemsAvailableSelectOne}"/>

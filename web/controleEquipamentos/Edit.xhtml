@@ -15,8 +15,7 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditControleEquipamentosLabel_idControleEquip}" for="idControleEquip" />
-                    <h:inputText id="idControleEquip" value="#{controleEquipamentosController.selected.idControleEquip}" title="#{bundle.EditControleEquipamentosTitle_idControleEquip}" required="true" requiredMessage="#{bundle.EditControleEquipamentosRequiredMessage_idControleEquip}"/>
+                    
                     <h:outputLabel value="#{bundle.EditControleEquipamentosLabel_dateEntregaEquip}" for="dateEntregaEquip" />
                     <h:inputText id="dateEntregaEquip" value="#{controleEquipamentosController.selected.dateEntregaEquip}" title="#{bundle.EditControleEquipamentosTitle_dateEntregaEquip}" required="true" requiredMessage="#{bundle.EditControleEquipamentosRequiredMessage_dateEntregaEquip}">
                         <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />

@@ -20,12 +20,7 @@
                     <h:commandLink action="#{mobilidadeController.previous}" value="#{bundle.Previous} #{mobilidadeController.pagination.pageSize}" rendered="#{mobilidadeController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{mobilidadeController.next}" value="#{bundle.Next} #{mobilidadeController.pagination.pageSize}" rendered="#{mobilidadeController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{mobilidadeController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMobilidadeTitle_idMobilidade}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idMobilidade}"/>
-                        </h:column>
+                        
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMobilidadeTitle_nome}"/>

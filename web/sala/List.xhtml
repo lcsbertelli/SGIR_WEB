@@ -20,12 +20,7 @@
                     <h:commandLink action="#{salaController.previous}" value="#{bundle.Previous} #{salaController.pagination.pageSize}" rendered="#{salaController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{salaController.next}" value="#{bundle.Next} #{salaController.pagination.pageSize}" rendered="#{salaController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{salaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSalaTitle_idSala}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idSala}"/>
-                        </h:column>
+                        
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSalaTitle_numSala}"/>

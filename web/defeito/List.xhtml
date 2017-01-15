@@ -20,12 +20,7 @@
                     <h:commandLink action="#{defeitoController.previous}" value="#{bundle.Previous} #{defeitoController.pagination.pageSize}" rendered="#{defeitoController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{defeitoController.next}" value="#{bundle.Next} #{defeitoController.pagination.pageSize}" rendered="#{defeitoController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{defeitoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListDefeitoTitle_idDefeito}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idDefeito}"/>
-                        </h:column>
+                        
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListDefeitoTitle_descricao}"/>

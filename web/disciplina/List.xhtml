@@ -20,12 +20,7 @@
                     <h:commandLink action="#{disciplinaController.previous}" value="#{bundle.Previous} #{disciplinaController.pagination.pageSize}" rendered="#{disciplinaController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{disciplinaController.next}" value="#{bundle.Next} #{disciplinaController.pagination.pageSize}" rendered="#{disciplinaController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{disciplinaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListDisciplinaTitle_idDisciplina}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idDisciplina}"/>
-                        </h:column>
+                        
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListDisciplinaTitle_nome}"/>

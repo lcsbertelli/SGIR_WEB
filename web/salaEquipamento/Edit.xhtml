@@ -15,8 +15,7 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditSalaEquipamentoLabel_idSalaEquip}" for="idSalaEquip" />
-                    <h:inputText id="idSalaEquip" value="#{salaEquipamentoController.selected.idSalaEquip}" title="#{bundle.EditSalaEquipamentoTitle_idSalaEquip}" required="true" requiredMessage="#{bundle.EditSalaEquipamentoRequiredMessage_idSalaEquip}"/>
+                    
                     <h:outputLabel value="#{bundle.EditSalaEquipamentoLabel_idEquip}" for="idEquip" />
                     <h:selectOneMenu id="idEquip" value="#{salaEquipamentoController.selected.idEquip}" title="#{bundle.EditSalaEquipamentoTitle_idEquip}" required="true" requiredMessage="#{bundle.EditSalaEquipamentoRequiredMessage_idEquip}">
                         <f:selectItems value="#{equipamentoController.itemsAvailableSelectOne}"/>

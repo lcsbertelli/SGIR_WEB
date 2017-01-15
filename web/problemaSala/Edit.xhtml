@@ -19,8 +19,7 @@
                     <h:inputText id="dataIdentificacao" value="#{problemaSalaController.selected.dataIdentificacao}" title="#{bundle.EditProblemaSalaTitle_dataIdentificacao}" required="true" requiredMessage="#{bundle.EditProblemaSalaRequiredMessage_dataIdentificacao}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.EditProblemaSalaLabel_idProblemaSala}" for="idProblemaSala" />
-                    <h:inputText id="idProblemaSala" value="#{problemaSalaController.selected.idProblemaSala}" title="#{bundle.EditProblemaSalaTitle_idProblemaSala}" required="true" requiredMessage="#{bundle.EditProblemaSalaRequiredMessage_idProblemaSala}"/>
+                    
                     <h:outputLabel value="#{bundle.EditProblemaSalaLabel_idProblema}" for="idProblema" />
                     <h:selectOneMenu id="idProblema" value="#{problemaSalaController.selected.idProblema}" title="#{bundle.EditProblemaSalaTitle_idProblema}" required="true" requiredMessage="#{bundle.EditProblemaSalaRequiredMessage_idProblema}">
                         <f:selectItems value="#{problemaController.itemsAvailableSelectOne}"/>

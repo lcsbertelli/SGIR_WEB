@@ -20,12 +20,7 @@
                     <h:commandLink action="#{gravidadeController.previous}" value="#{bundle.Previous} #{gravidadeController.pagination.pageSize}" rendered="#{gravidadeController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{gravidadeController.next}" value="#{bundle.Next} #{gravidadeController.pagination.pageSize}" rendered="#{gravidadeController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{gravidadeController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListGravidadeTitle_idGravidade}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idGravidade}"/>
-                        </h:column>
+                        
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListGravidadeTitle_nome}"/>

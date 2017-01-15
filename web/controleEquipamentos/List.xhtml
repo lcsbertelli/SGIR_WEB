@@ -21,12 +21,7 @@
                     <p:commandLink action="#{controleEquipamentosController.previous}" value="#{bundle.Previous} #{controleEquipamentosController.pagination.pageSize}" rendered="#{controleEquipamentosController.pagination.hasPreviousPage}"/>&nbsp;
                     <p:commandLink action="#{controleEquipamentosController.next}" value="#{bundle.Next} #{controleEquipamentosController.pagination.pageSize}" rendered="#{controleEquipamentosController.pagination.hasNextPage}"/>&nbsp;
                     <p:dataTable value="#{controleEquipamentosController.items}" var="item"   style="border:solid 1px">
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListControleEquipamentosTitle_idControleEquip}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idControleEquip}"/>
-                        </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListControleEquipamentosTitle_dateEntregaEquip}"/>

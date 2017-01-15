@@ -19,7 +19,10 @@
                     <h:outputText value="#{reservaSalaController.selected.idReservaSala}" title="#{bundle.ViewReservaSalaTitle_idReservaSala}"/>
                     <h:outputText value="#{bundle.ViewReservaSalaLabel_dateReserva}"/>
                     <h:outputText value="#{reservaSalaController.selected.dateReserva}" title="#{bundle.ViewReservaSalaTitle_dateReserva}">
-                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+                    </h:outputText>
+                     <h:outputText value="#{reservaSalaController.selected.dateReservaFim}" title="#{bundle.ViewReservaSalaTitle_dateReservaFim}">
+                        <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
                     </h:outputText>
                     <h:outputText value="#{bundle.ViewReservaSalaLabel_idDisciplina}"/>
                     <h:outputText value="#{reservaSalaController.selected.idDisciplina}" title="#{bundle.ViewReservaSalaTitle_idDisciplina}"/>

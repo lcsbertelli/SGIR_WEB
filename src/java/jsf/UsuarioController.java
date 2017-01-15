@@ -269,6 +269,7 @@ public class UsuarioController implements Serializable {
                     default:
                         System.out.println("Este não é um tipo válido!");
                 }
+              
                 
                 
                 

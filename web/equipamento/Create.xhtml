@@ -29,13 +29,13 @@
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{equipamentoController.create}" value="#{bundle.CreateEquipamentoSaveLink}" />
+                <p:commandButton action="#{equipamentoController.create}" value="#{bundle.CreateEquipamentoSaveLink}" ajax="false" />
                 <br />
                 <br />
-                <h:commandLink action="#{equipamentoController.prepareList}" value="#{bundle.CreateEquipamentoShowAllLink}" immediate="true"/>
+                <p:commandButton action="#{equipamentoController.prepareList}" value="#{bundle.CreateEquipamentoShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-       <p:commandButton value="Pagina Inicial" id="submit" action="#{usuarioController.redirecionar}" styleClass="ui-priority-primary" ajax="false" />
+       <p:commandButton value="Pagina Inicial" id="submit" immediate="true" action="#{usuarioController.redirecionar}" styleClass="ui-priority-primary" ajax="false" />
          </h:form>
         </ui:define>
     </ui:composition>

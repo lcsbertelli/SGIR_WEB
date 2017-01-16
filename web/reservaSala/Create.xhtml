@@ -49,7 +49,7 @@
                 <p:commandButton action="#{reservaSalaController.prepareList}" value="#{bundle.CreateReservaSalaShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <p:link outcome="/perfis-acesso/ger" value="#{bundle.CreateReservaSalaIndexLink}"/>
+                <p:commandButton value="Pagina Inicial" id="submit" immediate="true" action="#{usuarioController.redirecionar}" styleClass="ui-priority-primary" ajax="false" />
             </h:form>
         </ui:define>
     </ui:composition>

@@ -66,8 +66,8 @@
                 <p:commandButton action="#{controleEquipamentosController.prepareCreate}" value="#{bundle.ListControleEquipamentosCreateLink}" ajax = "false"/>
                 <br />
                 <br />
-                <h:link outcome="/perfis-acesso/assist" value="#{bundle.ListControleEquipamentosIndexLink}"/>
-            </h:form>
+              <p:commandButton value="Pagina Inicial" id="submit" action="#{usuarioController.redirecionar}" styleClass="ui-priority-primary" ajax="false" />
+              </h:form>
         </ui:define>
     </ui:composition>
 

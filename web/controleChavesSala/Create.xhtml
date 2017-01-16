@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -14,33 +15,34 @@
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
+                <p:panelGrid columns="2">
                     
                     <h:outputLabel value="#{bundle.CreateControleChavesSalaLabel_dateEntregaChave}" for="dateEntregaChave" />
-                    <h:inputText id="dateEntregaChave" value="#{controleChavesSalaController.selected.dateEntregaChave}" title="#{bundle.CreateControleChavesSalaTitle_dateEntregaChave}" required="true" requiredMessage="#{bundle.CreateControleChavesSalaRequiredMessage_dateEntregaChave}">
+                    <p:inputText id="dateEntregaChave" value="#{controleChavesSalaController.selected.dateEntregaChave}" title="#{bundle.CreateControleChavesSalaTitle_dateEntregaChave}" required="true" requiredMessage="#{bundle.CreateControleChavesSalaRequiredMessage_dateEntregaChave}">
                         <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
-                    </h:inputText>
+                    </p:inputText>
                     <h:outputLabel value="#{bundle.CreateControleChavesSalaLabel_dateDevolucaoChave}" for="dateDevolucaoChave" />
-                    <h:inputText id="dateDevolucaoChave" value="#{controleChavesSalaController.selected.dateDevolucaoChave}" title="#{bundle.CreateControleChavesSalaTitle_dateDevolucaoChave}" >
+                    <p:inputText id="dateDevolucaoChave" value="#{controleChavesSalaController.selected.dateDevolucaoChave}" title="#{bundle.CreateControleChavesSalaTitle_dateDevolucaoChave}" >
                         <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
-                    </h:inputText>
+                    </p:inputText>
                     <h:outputLabel value="#{bundle.CreateControleChavesSalaLabel_idAssistente}" for="idAssistente" />
-                    <h:selectOneMenu id="idAssistente" value="#{controleChavesSalaController.selected.idAssistente}" title="#{bundle.CreateControleChavesSalaTitle_idAssistente}" required="true" requiredMessage="#{bundle.CreateControleChavesSalaRequiredMessage_idAssistente}">
+                    <p:selectOneMenu id="idAssistente" value="#{controleChavesSalaController.selected.idAssistente}" title="#{bundle.CreateControleChavesSalaTitle_idAssistente}" required="true" requiredMessage="#{bundle.CreateControleChavesSalaRequiredMessage_idAssistente}">
                         <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateControleChavesSalaLabel_idReservaSala}" for="idReservaSala" />
-                    <h:selectOneMenu id="idReservaSala" value="#{controleChavesSalaController.selected.idReservaSala}" title="#{bundle.CreateControleChavesSalaTitle_idReservaSala}" required="true" requiredMessage="#{bundle.CreateControleChavesSalaRequiredMessage_idReservaSala}">
+                    <p:selectOneMenu id="idReservaSala" value="#{controleChavesSalaController.selected.idReservaSala}" title="#{bundle.CreateControleChavesSalaTitle_idReservaSala}" required="true" requiredMessage="#{bundle.CreateControleChavesSalaRequiredMessage_idReservaSala}">
                         <f:selectItems value="#{reservaSalaController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
-                </h:panelGrid>
+                    </p:selectOneMenu>
+                </p:panelGrid>
                 <br />
-                <h:commandLink action="#{controleChavesSalaController.create}" value="#{bundle.CreateControleChavesSalaSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{controleChavesSalaController.prepareList}" value="#{bundle.CreateControleChavesSalaShowAllLink}" immediate="true"/>
+                <p:commandButton action="#{controleChavesSalaController.create}" value="#{bundle.CreateControleChavesSalaSaveLink}" ajax="false" />
                 <br />
                 <br />
-                <h:link outcome="/perfis-acesso/assist" value="#{bundle.CreateControleChavesSalaIndexLink}"/>
+                <p:commandButton action="#{controleChavesSalaController.prepareList}" value="#{bundle.CreateControleChavesSalaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <p:commandButton value="Pagina Inicial" id="submit" action="#{usuarioController.redirecionar}" styleClass="ui-priority-primary" immediate="true"  />
+                 
             </h:form>
         </ui:define>
     </ui:composition>

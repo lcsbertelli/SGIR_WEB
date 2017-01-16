@@ -22,6 +22,8 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
+
+
 @Named("usuarioController")
 @SessionScoped
 public class UsuarioController implements Serializable {
@@ -33,6 +35,7 @@ public class UsuarioController implements Serializable {
     private jpa.session.UsuarioFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private int tipo_usuario;
 
     public UsuarioController() {
     }
@@ -247,43 +250,55 @@ public class UsuarioController implements Serializable {
     
     public void login() {
         
-        Usuario usuario;
+        List<Usuario> usuario;
         try {
         usuario = ejbFacade.buscaUsuarioPorEmailESenha(this.current.getEmail(), this.current.getSenha());
 
-        if(usuario == null) {
-            this.msg="USUÁRIO OU SENHA INVALIDOS"; // acho q ele nunca entra aqui
-        } else {
-            int tipo = usuario.getIdTipoUsuario().getIdTipoUsuario();
+        if(!(usuario.isEmpty()))  {             
+        
+            this.tipo_usuario = usuario.get(0).getIdTipoUsuario().getIdTipoUsuario();
             
-                switch (tipo) {
+              redirecionar();
+        } else {
+            this.msg="LOGIN OU SENHA INVALIDOS";        
+                
+        }   
+        }            
+        catch(Exception ex)
+        {
+            this.msg = "Erro de persistencia";
+        }
+ 
+        }
+    
+    public void redirecionar(){
+        try{
+        switch (this.tipo_usuario) {
                     case 1:                     
                         
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/admin.xhtml");
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("/SGIR_WEB/faces/perfis-acesso/admin.xhtml");
                         break;
                     case 2:
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/ger.xhtml");
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("/SGIR_WEB/faces/perfis-acesso/ger.xhtml");
                         break;
                     case 3:
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/assist.xhtml");
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("/SGIR_WEB/faces/perfis-acesso/assist.xhtml");
                         break;
                     case 4:
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("perfis-acesso/prof.xhtml");
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("/SGIR_WEB/faces/perfis-acesso/prof.xhtml");
                         break;
                     default:
                         System.out.println("Este não é um tipo válido!");
                 
-                }
-            }
+        }
         }
                     
         catch(Exception ex)
         {
-        this.msg="LOGIN OU SENHA INVALIDOS";
+            
         }
- 
-        }
-        
     }
+        
+}
 
 

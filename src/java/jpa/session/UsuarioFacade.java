@@ -32,11 +32,11 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         super(Usuario.class);
     }
     
-    public Usuario buscaUsuarioPorEmailESenha(String email, String senha) {
+    public List<Usuario> buscaUsuarioPorEmailESenha(String email, String senha) {
     return this.em
         .createNamedQuery("Usuario.findByEmailANDSenha", Usuario.class)
         .setParameter("email", email)
         .setParameter("senha", senha)    
-        .getSingleResult();       
+        .getResultList();       
     }
 }
